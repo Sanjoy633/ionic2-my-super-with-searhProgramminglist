@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-navbar color="custom-color">
+    <button menuToggle *ngIf="!selectedProgram">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Program Details</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<!--<ion-content onload="prettyPrint()">
+ <div *ngIf="selectedProgram" class="selection">
+    <b>{{selectedProgram.question}}</b><br>
+    <pre class="prettyprint lang-c">{{selectedProgram.program}}</pre>
+    
+    
+    <div>
+    </div>
+  </div>
+</ion-content>-->
+<ion-content no-bounce *ngIf="selectedProgram" class="selection">
+<ion-slides class="my-slides"
+              #mySlider
+              initialSlide="1"
+              (ionSlideDidChange)="onSlideChanged()"
+              (ionSlideDrag)="onSlideMove($event)" class="swiper-slide" >
+
+   
+    <ion-slide padding text-wrap>
+     
+      <ion-card-content>
+    <b>{{selectedProgram.question}}</b>
+  </ion-card-content>
+       <ion-card-content>
+      
+     <pre  style="text-align: left;"><code  data-language="c">{{selectedProgram.in_c}}</code></pre>
+  </ion-card-content>
+     
+     
+    </ion-slide>
+ <ion-slide padding text-wrap>
+     
+      <ion-card-content>
+    <b>{{selectedProgram.question}}</b>
+  </ion-card-content>
+       <ion-card-content>
+      
+     <pre  style="text-align: left;"><code  data-language="c">{{selectedProgram.in_cplus}}</code></pre>
+  </ion-card-content>
+     
+     
+    </ion-slide>
+
+     <ion-slide padding text-wrap>
+     
+      <ion-card-content>
+    <b>{{selectedProgram.question}}</b>
+  </ion-card-content>
+       <ion-card-content>
+      
+     <pre  style="text-align: left;"><code  data-language="c">{{selectedProgram.in_java}}</code></pre>
+  </ion-card-content>
+     
+     
+    </ion-slide>
+  </ion-slides>
+
+</ion-content>
